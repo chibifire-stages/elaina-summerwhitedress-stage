@@ -18,16 +18,16 @@ over "Elaina"
         float3 xformOp:scale = (1, 0.99999994, 0.99999994)
         double3 xformOp:translate = (8, -8, 2)
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
-    }
 
-    def Camera "CAM_Elaina_Snap_Camera"
-    {
-        float2 clippingRange = (0.1, 1000)
-        float focalLength = 0.5
-        float horizontalAperture = 0.36
-        token projection = "perspective"
-        custom string userProperties:blender:data_name = "SnapCam.001"
-        float verticalAperture = 0.36
+        def Camera "CAM_Elaina_Snap_Camera"
+        {
+            float2 clippingRange = (0.1, 1000)
+            float focalLength = 0.5
+            float horizontalAperture = 0.36
+            token projection = "perspective"
+            custom string userProperties:blender:data_name = "SnapCam.001"
+            float verticalAperture = 0.36
+        }
     }
 }
 

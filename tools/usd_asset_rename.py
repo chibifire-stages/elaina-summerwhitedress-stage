@@ -152,7 +152,7 @@ def main():
     cam = stage.GetPrimAtPath(f"{root}/SnapCam_001")
     if cam and cam.IsValid():
         for c in cam.GetChildren():
-            edits.append(Sdf.NamespaceEdit(str(c.GetPath()), f"{root}/CAM_{P}_Snap_Camera", False))
+            edits.append(Sdf.NamespaceEdit(str(c.GetPath()), f"{root}/CAM_{P}_Snap/CAM_{P}_Snap_Camera", False))
         edits.append(Sdf.NamespaceEdit(str(cam.GetPath()), f"{root}/CAM_{P}_Snap", False))
     if stage.GetPrimAtPath(f"{root}/env_light").IsValid():
         edits.append(Sdf.NamespaceEdit(f"{root}/env_light", f"{root}/LGT_{P}_Env", False))

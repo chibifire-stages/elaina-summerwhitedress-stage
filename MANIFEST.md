@@ -21,7 +21,7 @@ are the original PNG and EXR bytes, renamed to the convention in
 | `elaina-clean/layers/Materials.usda` | 22,836 | `c78dc113135eb5f9095f164027c2a33b7d01cfb232939171583eefeecbcdaed2` |
 | `elaina-clean/layers/Root.usda` | 235 | `a2b7ddcea1a68c3d62750d9fd5c1e56838f1c4cbfe6be22637551aec42ed9989` |
 | `elaina-clean/layers/Skeleton.usda` | 184,062 | `373d1bb17f528e06c5a7d02888543e22247551d99f168b60ddf7904373d77ec0` |
-| `elaina-clean/layers/Stage.usda` | 1,003 | `8ec86fb33eb692c88dbbdc57ae2000c75f19e8b0f7d42a9e021953e7bb35508f` |
+| `elaina-clean/layers/Stage.usda` | 1,039 | `957d2ce4c4ef09043de14ed83944273f40edb82ea994ef65dab6f6ebab7b7a66` |
 | `elaina-clean/layers/geometry/Body.usda` | 5,274,661 | `9f2f7eaf6acd14ad596b643e141d337ff654bd389edcba395539eacadb4e7f02` |
 | `elaina-clean/layers/geometry/Ear.usda` | 313,183 | `6bc7ce8ed512c79b898981a9a371cf7a6fc92751413c2210ab2ecf84459ae0b3` |
 | `elaina-clean/layers/geometry/Eye.usda` | 99,791 | `0a032984bf59308963901d1b1b9c68067909343f97589f3bb543f76a43078767` |
@@ -44,7 +44,7 @@ are the original PNG and EXR bytes, renamed to the convention in
 | `tools/elaina_final_run.sh` | 1,098 | `22ac695fc7560f9f545e2163f8cdcb53ea77234159496681150eb1f8f37127b4` |
 | `tools/elaina_v6_run.sh` | 3,577 | `8b84d813366a06dac7260cc089b7af8c98d54d3d22849d905c5a82aa7f401754` |
 | `tools/usd_asset_check.py` | 6,019 | `e01f6a07d90555138f8b6ac66def745843d6d361c02366e6340ee48d18591280` |
-| `tools/usd_asset_rename.py` | 10,995 | `c60c1ae04960c29cb4d4673d58c6ad5703e3cff3bb7fb0207158ef61b7c7e7fe` |
+| `tools/usd_asset_rename.py` | 11,008 | `dea97156fb1a24a2c7d0b666f05b5c22cacde6c7e98511bdf892a8d59edcf374` |
 | `tools/usd_equiv.py` | 2,025 | `740a440e3fe96bffd581f39be0ef5a7e5a69c4834fa6eac150a6c24321bb2c59` |
 | `tools/usd_explode_shells.py` | 5,772 | `6156f226e2a33747877da2c8bbd768a47a74a1363d6db181eeb840ea8dd99071` |
 | `tools/usd_fix_documentation.py` | 1,717 | `0f62ec083043d07efc65a91183173ec376568f2ae10c148a393ac1c271403890` |
@@ -55,7 +55,7 @@ are the original PNG and EXR bytes, renamed to the convention in
 | `tools/usd_outline_check.py` | 4,367 | `00c02d2ab97ef68b2009498214482df9b10db94b46a74d70037ff41957190ed9` |
 | `tools/usd_package3.py` | 2,231 | `9b0d3f210e01a9c230fd3eca16aa4824bb8c28b4ca84b06311e268ca35f8f982` |
 | `tools/usd_package_usdz.py` | 1,768 | `96e0c385e089047e83eedfb4ca84c511c59928ab8c1ec79e4b9f34a5f8ae3cf5` |
-| `tools/usd_paired_check.py` | 9,692 | `cee96539be02fdc0e4d640fee7e5191f0e8828032b9471a8fa534fa975c59303` |
+| `tools/usd_paired_check.py` | 9,773 | `d5f796bb7d9527f99ce2e99dd5fdcb8ff03e832ee825acb6d90511408e2a7375` |
 | `tools/usd_preview.py` | 3,326 | `5e3565aaeceaed21dd53516bc7cbbb4c5e8a1aba9db0dac9a2d7c4c4fd0f1738` |
 | `tools/usd_probe_mesh.py` | 912 | `c628348e3d3be7cee626cef9e5be507117b1c6cb004be0afbadf83a3095e28cd` |
 | `tools/usd_relativize_textures.py` | 2,939 | `44934e574c6a721b0c26004890fb3365cc66e80c7c28aa2ac14b79002339ffdc` |
@@ -75,7 +75,7 @@ are the original PNG and EXR bytes, renamed to the convention in
 | `tools/usd_weights.py` | 3,033 | `8ffc476ab5e3bf6d20f49c7230243791669834dd023112247221f3a056a2408c` |
 | `tools/usd_weights2.py` | 2,925 | `578ae8fbc05bebdf58dfade3abd591a0997edf57aa39ec4c9d0f4344558f358a` |
 
-65 files, 129,655,845 bytes.
+65 files, 129,655,975 bytes.
 
 Built from `Elaina_clean.usdz` (our cleaned stage) by
 `tools/usd_asset_rename.py` and `tools/usd_split_layers.py`.

@@ -98,6 +98,7 @@ def main():
     ap.add_argument("--manifest", default=None)
     ap.add_argument("--joints", type=int, default=292)
     ap.add_argument("--under", default="/root/char_grp/rig")
+    ap.add_argument("--root", default="/root", help="the character root prim")
     ap.add_argument("--quantum", type=float, default=None,
                     help="weld quantum; the reference's, so one rule covers every file")
     args = ap.parse_args()
@@ -188,7 +189,7 @@ def main():
     cs = [str(p.GetPath()) for p in prims if str(p.GetPath()).startswith("/root/char_grp/cs_grp")]
     if cs:
         fails.append(f"{len(cs)} cs_* gizmo prims remain")
-    empties = [str(c.GetPath()) for c in st.GetPrimAtPath("/root").GetChildren()
+    empties = [str(c.GetPath()) for c in st.GetPrimAtPath(args.root).GetChildren()
                if c.GetTypeName() == "Xform" and not list(c.GetChildren())]
     if empties:
         fails.append(f"childless Xforms at the scene root remain: {empties}")
