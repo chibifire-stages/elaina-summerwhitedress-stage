@@ -1,0 +1,50 @@
+cff-version: 1.2.0
+title: "Elaina stage: The Witch's Journey (Summer White Dress), unbundled OpenUSD"
+message: >-
+  If you use these stages, cite this repository and the upstream artwork listed
+  under `references`.
+authors:
+  - family-names: Lee
+    given-names: "K. S. Ernest (iFire)"
+    alias: fire
+    website: https://github.com/fire
+license: CC-BY-4.0
+license-url: https://creativecommons.org/licenses/by/4.0/
+type: dataset
+version: "2026-10-29"
+date-released: "2026-10-29"
+url: https://github.com/chibifire-stages/elaina-summerwhitedress-stage
+keywords:
+  - OpenUSD
+  - USDZ
+  - character
+  - toon outline
+  - skinning
+  - fan art
+references:
+  - type: art
+    title: "Elaina - The Witch's Journey (Summer White Dress)"
+    authors:
+      - name: ScarletJadeDream
+    url: https://sketchfab.com/3d-models/elaina-the-witchs-journeysummerwhitedress-216ade78547a483fa055b15dae0c4ab0
+    license: CC-BY-4.0
+    notes: >-
+      Fan art of Elaina from "Wandering Witch: The Journey of Elaina", made in
+      Blender 3.2. The Sketchfab conversion (`sketchfab/scene.usdc` and its
+      textures) is the upstream of `elaina-clean/`. The character belongs to its
+      rights holders.
+  - type: software
+    title: Blender
+    authors:
+      - name: The Blender Foundation
+    url: https://www.blender.org/about/license/
+    version: "3.2"
+    license: GPL-2.0-or-later
+    notes: The exporter that produced the upstream Blender layer.
+  - type: software
+    title: OpenUSD
+    authors:
+      - name: Pixar Animation Studios
+    url: https://openusd.org/
+    license: Apache-2.0
+    notes: The format, the reader used to verify every stage, and usdchecker.
