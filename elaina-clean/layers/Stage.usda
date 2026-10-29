@@ -1,0 +1,33 @@
+#usda 1.0
+
+over "Elaina"
+{
+    def DomeLight "LGT_Elaina_Env" (
+        apiSchemas = ["ColorSpaceAPI"]
+    )
+    {
+        uniform token colorSpace:name = "lin_rec709_scene"
+        float inputs:intensity = 1
+        asset inputs:texture:file = @../textures/T_Elaina_Env_D.exr@
+    }
+
+    def Xform "CAM_Elaina_Snap"
+    {
+        custom string userProperties:blender:object_name = "SnapCam.001"
+        float3 xformOp:rotateXYZ = (88.98725, -0.0000054258257, 45.000008)
+        float3 xformOp:scale = (1, 0.99999994, 0.99999994)
+        double3 xformOp:translate = (8, -8, 2)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Camera "CAM_Elaina_Snap_Camera"
+    {
+        float2 clippingRange = (0.1, 1000)
+        float focalLength = 0.5
+        float horizontalAperture = 0.36
+        token projection = "perspective"
+        custom string userProperties:blender:data_name = "SnapCam.001"
+        float verticalAperture = 0.36
+    }
+}
+

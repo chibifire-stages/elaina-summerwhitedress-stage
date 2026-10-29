@@ -22,6 +22,8 @@ directory.
 | 9 | `usd_package_usdz.py` | packages a layer as a compliant `.usdz`, and checks alignment and resolution |
 | 10 | `usd_paired_check.py` | the gate. Both arms: the source must fail, the result must pass |
 | 11 | `usd_preview.py` | writes a preview stage (the asset's own materials, a framing camera, two lights) for `usdrecord` |
+| 12 | `usd_asset_rename.py` | renames prims and images to the convention in [../docs/naming.md](../docs/naming.md), collapses Blender's one-mesh wrapper Xforms, and checks the geometry, bounds, bindings and skinning are unchanged |
+| 13 | `usd_split_layers.py` | splits a flat stage into the layer stack described in [../docs/layers.md](../docs/layers.md), and checks the stack against the flat source |
 
 ```sh
 Q=7.932246821337585e-05      # weld quantum, fixed from the source file

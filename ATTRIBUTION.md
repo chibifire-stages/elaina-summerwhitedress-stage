@@ -41,7 +41,12 @@ them removals or repairs — no geometry was authored, and no image was edited:
 - repaired `primvars:skel:jointIndices` / `jointWeights`, which had been truncated
   to one value per point instead of `elementSize` values per point;
 - repointed all twelve `UsdPrimvarReader_float2` nodes from `"_"` to `st`, the UV
-  primvar the meshes carry, which is what made every material render black.
+  primvar the meshes carry, which is what made every material render black;
+- named every prim and image to the convention in
+  [docs/naming.md](docs/naming.md), and collapsed the one-mesh wrapper Xforms
+  Blender leaves behind;
+- split the stage into the layer stack in [docs/layers.md](docs/layers.md), so an
+  edit touches one part instead of one 60 MB file.
 
 The character is fan art of Elaina from *Wandering Witch: The Journey of Elaina*;
 the character and its designs belong to their rights holders.
