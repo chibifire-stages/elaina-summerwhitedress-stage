@@ -200,34 +200,45 @@ def main():
     manifest_layer.Save()
     print("sublayers:", manifest_layer.subLayerPaths)
 
-    # Images: copy them beside the layers and author the paths from the layer that
-    # holds the shaders, walked at the spec level so the edit lands there and not
-    # in the manifest.
+    # Images: copy them beside the layers and re-point their file inputs.
+    # The materials and stage are *over* layers (over "Elaina"), so their prims
+    # live under the over-root and only appear once composed.  Sdf.Layer.Traverse
+    # hands the over-rooted path back, and layer.GetPropertyAtPath(path) returns
+    # the asset.  Setting prop.default keeps it authored as @../textures/<name>
+    # (relative to the layer), which resolves once the package is assembled.
+    # (The old SDF spec-level walk passed a callback the wrong signature; this
+    # 1-arg form + GetPropertyAtPath works across pxr builds.)
     out_tex = os.path.join(args.out_dir, "textures")
     os.makedirs(out_tex, exist_ok=True)
     fixed = 0
     for name in ("Materials.usda", "Stage.usda"):
-        layer = Sdf.Layer.FindOrOpen(os.path.join(layers_dir, name))
-
-        def visit(path, spec, layer=layer):
-            global fixed
-            if not isinstance(spec, Sdf.AttributeSpec) or spec.typeName != Sdf.ValueTypeNames.Asset:
-                return
-            v = spec.default
+        layer_file = os.path.join(layers_dir, name)
+        layer = Sdf.Layer.FindOrOpen(layer_file)
+        paths = []
+        def _cb(path):
+            paths.append(path)
+        layer.Traverse("/", _cb)
+        for path in paths:
+            try:
+                prop = layer.GetPropertyAtPath(path)
+            except Exception:
+                continue
+            if prop is None or prop.typeName != Sdf.ValueTypeNames.Asset:
+                continue
+            v = prop.default
             if not v or not v.path:
-                return
+                continue
             base = os.path.basename(v.path)
             src = os.path.join(args.textures, base)
             if not os.path.exists(src):
-                return
-            if not os.path.exists(os.path.join(out_tex, base)):
-                shutil.copyfile(src, os.path.join(out_tex, base))
-            spec.default = Sdf.AssetPath(os.path.join("..", "textures", base))
-            globals()["fixed"] = globals().get("fixed", 0) + 1
-
-        layer.Traverse("/", visit)
+                continue
+            tgt = os.path.join(out_tex, base)
+            if not os.path.exists(tgt):
+                shutil.copyfile(src, tgt)
+            prop.default = Sdf.AssetPath(os.path.join("..", "textures", base))
+            fixed += 1
         layer.Save()
-    print(f"image inputs repointed and images copied to {out_tex}")
+    print(f"image inputs repointed ({fixed}) and images copied to {out_tex}")
 
     # ---- verify ----------------------------------------------------------
     check = Usd.Stage.Open(manifest)
