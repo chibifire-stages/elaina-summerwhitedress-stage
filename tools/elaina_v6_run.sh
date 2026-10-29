@@ -1,5 +1,5 @@
 set -e
-cd ./.hermes/cache/scratch
+cd "${WORK:?set WORK to the scratch directory holding the source layer}"
 Q=7.932246821337585e-05
 echo "### 1. strip ###"
 python3 usd_strip_shells.py --src elaina_retry/Elaina.usdc --dst elaina_retry/Elaina_v6.usdc \

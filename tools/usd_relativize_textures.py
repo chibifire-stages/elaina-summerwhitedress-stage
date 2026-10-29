@@ -1,9 +1,9 @@
 """Point every asset input at the copy of that file which sits under the layer.
 
 `Usd.Stage.Export()` resolves asset paths as it writes, so a layer can end up
-naming its textures absolutely (`/tmp/stage/1/tex.png`) -- it works on the machine
+naming its textures absolutely (`/abs/stage/1/tex.png`) -- it works on the machine
 that wrote it and nowhere else -- and a hand-fixed path can end up relative but
-wrong (`../../../../tmp/stage/1/tex.png`). This finds each referenced file by
+wrong (`../../../../abs/stage/1/tex.png`). This finds each referenced file by
 basename under the layer's own directory (the directory itself, or one level
 down) and writes that relative path.
 

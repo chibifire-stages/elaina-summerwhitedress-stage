@@ -64,7 +64,7 @@ Two more, about publishing a layer rather than rendering one:
 - **Setting a field does not remove the old value from a `.usdc` string table.**
   `Save()` keeps unused strings, `Export()` copies that table, and `Flatten()`
   appends "Generated from Composed Stage of root layer &lt;path&gt;" to the
-  documentation, so a layer that once held `/Users/&lt;name&gt;/...` keeps those bytes
+  documentation, so a layer that once held an absolute home path keeps those bytes
   after the paths are fixed. `usd_layer_clean.py` builds the output from values
   with `Sdf.CopySpec`, so its table holds only what the content references.
 - **`Export()` resolves asset paths as it writes.** A dome light's

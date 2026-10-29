@@ -1,5 +1,5 @@
 set -e
-cd ./.hermes/cache/scratch
+cd "${WORK:?set WORK to the scratch directory holding the source layer}"
 Q=7.932246821337585e-05
 python3 usd_strip_shells.py --src elaina_retry/Elaina.usdc --dst elaina_retry/Elaina_v5.usdc \
   --manifest elaina_retry/manifest_v5.json --report elaina_retry/report_v5.json \

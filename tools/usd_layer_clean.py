@@ -4,7 +4,7 @@ Setting a field does not remove the old value from a `.usdc` string table:
 `Sdf.Layer.Save()` rewrites the layer but keeps unused strings,
 `Usd.Stage.Export()` copies that table, and `Usd.Stage.Flatten()` appends
 "Generated from Composed Stage of root layer <path>" to the documentation. So a
-layer whose asset paths were once absolute (`/Users/<name>/...`) keeps those bytes
+layer whose asset paths were once absolute keeps those bytes
 even after the paths are fixed -- and publishing content must not carry them.
 
 This fixes the asset inputs in a scratch copy, then builds the output layer from
@@ -61,6 +61,9 @@ def main():
     ap.add_argument("--src", required=True)
     ap.add_argument("--dst", required=True)
     ap.add_argument("--documentation", default=DEFAULT_DOC)
+    ap.add_argument("--needle", action="append",
+                    default=["/Users/", "/home/", "/tmp/"],
+                    help="a string the rebuilt layer must not contain")
     args = ap.parse_args()
 
     dst_dir = os.path.dirname(os.path.realpath(args.dst))
@@ -106,7 +109,7 @@ def main():
     print(f"inputs repointed {fixed} | wrote {args.dst} ({os.path.getsize(args.dst)} bytes)")
 
     raw = open(args.dst, "rb").read()
-    hits = {n: raw.count(n.encode()) for n in ("/Users/", "/home/", "/tmp/", "ernest")
+    hits = {n: raw.count(n.encode()) for n in args.needle
             if raw.count(n.encode())}
     print("stale-path scan:", hits if hits else "clean")
 

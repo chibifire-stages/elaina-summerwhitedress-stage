@@ -3,7 +3,7 @@
 Blender's USD export writes the exporter version plus "Generated from Composed
 Stage of root layer <absolute path>" into the layer's `documentation` metadata,
 so a file that is otherwise clean still carries a home path
-(`/Users/<name>/.hermes/...`) into anything that reads its metadata. Publishing
+(a home directory) into anything that reads its metadata. Publishing
 content must not.
 
   usd_fix_documentation.py --src IN.usdc --dst OUT.usdc --text "..."
@@ -33,7 +33,7 @@ def main():
     print(f"documentation: {len(before)} chars -> {len(after)}")
     print("   was:", before.replace("\n", " | ")[:160])
     print("   now:", after[:160])
-    for needle in ("/Users/", "/home/", "ernest"):
+    for needle in ("/Users/", "/home/"):
         print(f"   {needle!r} in new text: {needle in after}")
     if args.dst != args.src:
         import shutil
